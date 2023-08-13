@@ -1,0 +1,101 @@
+footer {
+  display: flex;
+  flex-direction: column;
+  gap: 2.19rem;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--orange);
+  padding: 3.75rem 12.5rem;
+}
+
+footer .content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer .logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.62rem;
+}
+
+footer p {
+  font-size: 1.75rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  font-family: var(--gilroy);
+  color: white;
+}
+
+footer .links {
+  display: flex;
+  flex-direction: row;
+  gap: 3.75rem;
+}
+
+footer .links a {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  color: white;
+  font-family: var(--poppins);
+}
+
+footer .contact {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.62rem;
+}
+
+footer .contact_txt {
+  color: white;
+  font-family: var(--poppins);
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+footer .contact_number {
+  color: white;
+  font-family: var(--open-sans);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+footer .social_media {
+  display: flex;
+  flex-direction: row;
+  gap: 1.25rem;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    footer {
+        padding: 3.75rem 12.5rem;
+    }
+}
+
+/* Tablet */
+@media (min-width: 481px) and (max-width: 768px) {
+    footer {
+        padding: 2.75rem 4.5rem;
+    }
+}
+
+/* Laptop  */
+@media (min-width: 769px) and (max-width: 1024px) {
+    footer {
+        padding: 3.75rem 10.5rem;
+    }
+}
