@@ -81,21 +81,62 @@ footer .social_media {
 
 /* Mobile */
 @media (max-width: 480px) {
-    footer {
-        padding: 3.75rem 12.5rem;
-    }
+  footer {
+    padding: 1.75rem 2.5rem;
+  }
+
+  footer .content {
+    flex-direction: column;
+    gap: 1.75rem;
+    align-items: center;
+  }
+
+  footer .links {
+    flex-direction: column;
+    gap: 1.75rem;
+    align-items: center;
+  }
+
+  footer .contact {
+    gap: 0.62rem;
+    align-items: center;
+  }
 }
 
 /* Tablet */
 @media (min-width: 481px) and (max-width: 768px) {
-    footer {
-        padding: 2.75rem 4.5rem;
-    }
+  footer {
+    padding: 2.75rem 4.5rem;
+  }
+
+  footer .links {
+    flex-direction: column;
+    gap: 1.75rem;
+    align-items: center;
+  }
+
+  footer .contact {
+    flex-direction: column;
+    gap: 0.62rem;
+    align-items: center;
+  }
 }
 
 /* Laptop  */
 @media (min-width: 769px) and (max-width: 1024px) {
-    footer {
-        padding: 3.75rem 10.5rem;
-    }
+  footer {
+    padding: 3.75rem 7.5rem;
+  }
+
+  footer .links {
+    flex-direction: column;
+    gap: 1.75rem;
+    align-items: center;
+  }
+
+  footer .contact {
+    flex-direction: column;
+    gap: 0.62rem;
+    align-items: center;
+  }
 }
