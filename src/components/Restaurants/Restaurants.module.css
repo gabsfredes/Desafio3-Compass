@@ -1,0 +1,18 @@
+#restaurants {
+  padding: 2rem 19rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+#restaurants .title {
+  margin-bottom: 2rem;
+  font-family: var(--poppins);
+  color: var(--dark-gray);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
