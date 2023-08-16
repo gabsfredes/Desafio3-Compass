@@ -1,5 +1,15 @@
+import Error from "../components/Error/Error";
+import Footer from "../components/Footer/Footer";
+import Header from "../components/Header/Header";
+
 const ErrorPage = () => {
-    return <div>404 - Not Found</div>;
-}
+  return (
+    <>
+      <Header />
+      <Error />
+      <Footer />
+    </>
+  );
+};
 
 export default ErrorPage;
