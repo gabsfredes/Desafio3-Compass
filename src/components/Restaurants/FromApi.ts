@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from "axios";
+import axios, { AxiosResponse } from 'axios';
 
 const API_URL = "https://parseapi.back4app.com/graphql";
 const APPLICATION_ID = "lrAPveloMl57TTby5U0S4rFPBrANkAhLUll8jFOh";
