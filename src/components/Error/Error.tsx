@@ -6,7 +6,7 @@ const Error: React.FC = () => {
     <section id={classes.error_page}>
       <h1>Error 404</h1>
       <h2>This page doesn't exist or the URL is incorrect 😥</h2>
-      <h2>Go <Link to='/'>back home</Link> and try again!</h2>
+      <h2>Go <Link to='/'>back home</Link> and contact us!</h2>
     </section>
   );
 };
