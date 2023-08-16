@@ -1,0 +1,76 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.625rem;
+  background: var(--xlight-gray);
+  padding: 1.5625rem;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  width: fit-content;
+}
+
+.card_title {
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+  font-family: var(--poppins);
+  color: var(--color-dark-gray);
+  text-decoration: none;
+}
+
+.card_title .link {
+  text-decoration: none;
+  color: var(--color-dark-gray);
+}
+
+.card_description {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: lowercase;
+  font-family: var(--poppins);
+  color: var(--light-gray);
+}
+
+.card_about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.card_image {
+  border-radius: 0.625rem;
+  box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.13);
+}
+
+.card_location {
+  display: flex;
+  flex-direction: row;
+  gap: 0.3rem;
+  color: var(--light-gray);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  font-family: var(--poppins);
+}
+
+.card_stars_delivery {
+  display: flex;
+  flex-direction: row;
+  gap: 0.3rem;
+  color: var(--light-gray);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  font-family: var(--poppins);
+  color: var(--dark-gray);
+}

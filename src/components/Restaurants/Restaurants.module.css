@@ -1,0 +1,55 @@
+#restaurants {
+  padding: 2rem 15rem;
+  justify-content: center;
+}
+
+#restaurants .title {
+  margin-bottom: 2rem;
+  font-family: var(--poppins);
+  color: var(--color-dark-gray);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.restaurants_display {
+  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.85rem;
+} 
+
+/* Mobile */
+@media (max-width: 480px) {
+  #restaurants {
+    padding: 2rem 4rem;
+  }
+
+  .restaurants_display {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.85rem;
+  } 
+}
+ 
+/* Tablet */
+@media (min-width: 481px) and (max-width: 768px) {
+  #restaurants {
+    padding: 2rem 7rem;
+  }
+
+  .restaurants_display {
+    grid-template-columns: repeat(2, 1fr);
+  } 
+}
+
+/* Laptop  */
+@media (min-width: 769px) and (max-width: 1024px) {
+  #restaurants {
+    padding: 2rem 10rem;
+  }
+
+  .restaurants_display {
+    grid-template-columns: repeat(3, 1fr);
+  } 
+}
