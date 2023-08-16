@@ -19,7 +19,7 @@
 
 #error_page h2 {
   font-family: var(--inter);
-  color: var(--xlight-gray);
+  color: var(--color-dark-gray);
 }
 
 /* Mobile */
@@ -29,13 +29,9 @@
   }
   #error_page h1 {
     font-size: 3rem;
-    font-family: var(--poppins);
-    color: var(--orange);
   }
   
   #error_page h2 {
     font-size: 2rem;
-    font-family: var(--inter);
-    color: var(--xlight-gray);
   }
 }
