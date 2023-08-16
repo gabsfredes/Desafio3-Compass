@@ -3,6 +3,12 @@
   justify-content: center;
 }
 
+#restaurants p {
+  font-family: var(--poppins);
+  color: var(--color-dark-gray);
+  font-size: 2rem;
+}
+
 #restaurants .title {
   margin-bottom: 2rem;
   font-family: var(--poppins);
