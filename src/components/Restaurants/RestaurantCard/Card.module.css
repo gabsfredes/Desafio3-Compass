@@ -7,6 +7,7 @@
   justify-content: center;
   align-items: center;
   gap: 1.25rem;
+  width: fit-content;
 }
 
 .card_title {
@@ -16,7 +17,13 @@
   line-height: normal;
   text-transform: capitalize;
   font-family: var(--poppins);
-  color: var(--dark-gray);
+  color: var(--color-dark-gray);
+  text-decoration: none;
+}
+
+.card_title .link {
+  text-decoration: none;
+  color: var(--color-dark-gray);
 }
 
 .card_description {
