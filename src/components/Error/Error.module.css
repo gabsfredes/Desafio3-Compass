@@ -10,7 +10,7 @@
     text-decoration: none;
     color: var(--orange);
     font-family: var(--inter);
-}
+} 
 
 #error_page h1 {
   font-family: var(--poppins);
@@ -20,4 +20,22 @@
 #error_page h2 {
   font-family: var(--inter);
   color: var(--xlight-gray);
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  #error_page {
+    padding: 5rem 2.5rem;
+  }
+  #error_page h1 {
+    font-size: 3rem;
+    font-family: var(--poppins);
+    color: var(--orange);
+  }
+  
+  #error_page h2 {
+    font-size: 2rem;
+    font-family: var(--inter);
+    color: var(--xlight-gray);
+  }
 }
