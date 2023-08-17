@@ -38,45 +38,40 @@ export async function fgetSchemas(): Promise<any[]> {
   }
 }
 
-export async function mutationNewUser(values: any): Promise<any[]> {
-  const newUserMutation = `
-  mutation SignUp ($username: String!, $password: String!){
-    signUp(input: {
-      fields: {
-        username: $username
-        password: $password
-      }
-    })
+export async function mutationLogin(values: any): Promise<any[]> {
+  const loginMutation = `
+  mutation LogIn{
+    logIn(input: {
+      username: "Gabriel F"
+      password: "123456"
+    }){
       viewer{
         user{
           id
           createdAt
+          updatedAt
+          username
         }
         sessionToken
-}
-
+      }
+    }
   }
   `;
   try {
     const response: AxiosResponse = await axios.post(
       apiConfig.baseUrl,
-      { query: newUserMutation,
-        variables: {
-          username: values.username,
-          email: values.email,
-          password: values.password,
-        },  
+      {
+        query: loginMutation,
+        variables: values,
       },
-      
       { headers: apiConfig.headers }
     );
 
-    // cria user
-    const user = response.data.data.signUp.viewer.user;
-    console.log("Criado:" + user);
-    return user;
+    // resultado da query
+    console.log('logged in');;
+    return response.data.data.logIn.viewer.sessionToken;
   } catch (error) {
-    console.error("Error fetching schemas:", error);
+    console.error("Error login:", error);
     throw error;
   }
 }

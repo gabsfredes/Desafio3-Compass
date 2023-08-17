@@ -1,13 +1,18 @@
 import classes from "./Login.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { mutationLogin } from "./Api";
 import { Formik, Field, Form, FormikHelpers, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { createSessionCookie } from '../cookieUtils';
+
 interface Values {
   username: string;
   password: string;
 }
 
-const Login: React.FC = () => {
+const Login: React.FC = () => { 
+  const navigate = useNavigate();
+
   const validationSchema = Yup.object().shape({
     username: Yup.string()
       .min(3, "Username has at least 3 characters")
@@ -20,11 +25,12 @@ const Login: React.FC = () => {
   const initialValues = {
     username: "",
     password: "",
-  };
+  }; 
 
-  const handleSubmit = (values: Values, actions: FormikHelpers<Values>) => {
-    console.log(values);
-    actions.setSubmitting(false);
+  const handleSubmit = async (values: Values, actions: FormikHelpers<Values>) => {
+    const loginToken = await mutationLogin(values);
+    createSessionCookie('sessionToken', loginToken, 7);
+    navigate('/');
   };
 
   return (
