@@ -18,7 +18,7 @@ const Header: React.FC = () => {
           <p>FitMe</p>
         </div>
       </Link>
-      {!isRegisterRoute && (
+      {(!isRegisterRoute && !isLoginRoute) && (
         <div className={classes.menu}>
           <div className={classes.search_bar}>
             <SearchBar />
