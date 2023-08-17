@@ -1,12 +1,15 @@
 import classes from "./Register.module.css";
-import { fgetSchemas } from "./Api";
+import { fgetSchemas, mutationNewUser } from "./Api";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 import { Formik, Field, Form, FormikHelpers, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 interface Values {
   username: string;
   email: string;
+  password: string;
+  cpassword: string;
 }
 
 const Register: React.FC = () => {
@@ -30,7 +33,7 @@ const Register: React.FC = () => {
     password: Yup.string()
       .min(6, "Password must have at least 6 characters")
       .required("Password is required"),
-      
+
     cpassword: Yup.string()
       .oneOf([Yup.ref("password")], "Passwords must match")
       .required("Confirm Password is required"),
@@ -39,10 +42,17 @@ const Register: React.FC = () => {
   const initialValues = {
     username: "",
     email: "",
+    password: "",
+    cpassword: "",
   };
 
   const handleSubmit = (values: Values, actions: FormikHelpers<Values>) => {
     console.log(values);
+
+    mutationNewUser(values).then((response) => {
+      console.log("User created successfully");
+    });
+
     actions.setSubmitting(false);
   };
 
@@ -71,7 +81,11 @@ const Register: React.FC = () => {
                   className={classes.input}
                   required
                 />
-                  <ErrorMessage name="username" component='div' className={classes.register_error} />
+                <ErrorMessage
+                  name="username"
+                  component="div"
+                  className={classes.register_error}
+                />
               </div>
 
               <div className={classes.input_content}>
@@ -85,7 +99,11 @@ const Register: React.FC = () => {
                   className={classes.input}
                   required
                 />
-                <ErrorMessage name="email" component='div' className={classes.register_error} />
+                <ErrorMessage
+                  name="email"
+                  component="div"
+                  className={classes.register_error}
+                />
               </div>
 
               <div className={classes.input_content}>
@@ -99,7 +117,11 @@ const Register: React.FC = () => {
                   className={classes.input}
                   required
                 />
-                <ErrorMessage name="password" component='div' className={classes.register_error} />
+                <ErrorMessage
+                  name="password"
+                  component="div"
+                  className={classes.register_error}
+                />
               </div>
 
               <div className={classes.input_content}>
@@ -113,7 +135,11 @@ const Register: React.FC = () => {
                   className={classes.input}
                   required
                 />
-                <ErrorMessage name="cpassword" component='div' className={classes.register_error} />
+                <ErrorMessage
+                  name="cpassword"
+                  component="div"
+                  className={classes.register_error}
+                />
               </div>
 
               <button type="submit" className="btn register">
