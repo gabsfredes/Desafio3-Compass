@@ -12,7 +12,7 @@ const Restaurants: React.FC = () => {
         setRestaurants(fetchedRestaurants);
       })
       .catch((error) => {
-        console.error("Error:", error);
+        console.error("Error effect:", error);
       });
   }, []);
 
