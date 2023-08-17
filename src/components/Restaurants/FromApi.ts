@@ -1,8 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
-
-const API_URL = "https://parseapi.back4app.com/graphql";
-const APPLICATION_ID = "lrAPveloMl57TTby5U0S4rFPBrANkAhLUll8jFOh";
-const REST_API_KEY = "8aqUBWOjOplfA6lstntyYsYVkt3RzpVtb8qU5x08";
+import apiConfig from '../apiConfig';
 
 export interface Restaurant {
   objectId: string;
@@ -15,16 +12,16 @@ export interface Restaurant {
 
 const graphqlQuery = `
     query {
-    restaurants {
-        edges {
-            node {
-                objectId
-                name
-                rating
-                deliveryTime
-                location
+      fitMes {
+        edges{
+              node {
+                  objectId
+                  name
+                  rating
+                  deliveryTime
+                  location
+              }
             }
-        }
         }
     }
     `;
@@ -32,19 +29,13 @@ const graphqlQuery = `
 export async function fetchRestaurants(): Promise<any[]> {
   try {
     const response: AxiosResponse = await axios.post(
-      API_URL,
+      apiConfig.baseUrl,
       { query: graphqlQuery },
-      {
-        headers: {
-          "X-Parse-Application-Id": APPLICATION_ID,
-          "X-Parse-REST-API-Key": REST_API_KEY,
-          "content-type": "application/json",
-        },
-      }
+      { headers: apiConfig.headers }
     );
 
     // resultado da query
-    const restaurants = response.data.data.restaurants.edges.map((edge: any) => edge.node);
+    const restaurants = response.data.data.fitMes.edges.map((edge: any) => edge.node);
     return restaurants;
   } catch (error) {
     console.error("Error fetching restaurants:", error);
