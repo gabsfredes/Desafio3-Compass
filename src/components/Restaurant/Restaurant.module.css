@@ -1,0 +1,90 @@
+#restaurant {
+  display: flex;
+  flex-direction: column;
+}
+
+.restaurant_header {
+  padding: 1.5625rem 5rem;
+  justify-content: center;
+  gap: 2.5rem;
+  display: flex;
+  background-color: var(--color-dark-gray);
+}
+
+.restaurant_header .image {
+  border-radius: 0.625rem;
+}
+
+.restaurant_header .about {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  justify-content: center;
+}
+
+.restaurant_header .about .name {
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  font-family: var(--poppins);
+  color: white;
+}
+
+.restaurant_header .about .location {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: lowercase;
+  font-family: var(--poppins);
+  color: white;
+}
+
+.restaurant_header .about .others {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  font-family: var(--poppins);
+  color: white;
+}
+
+.restaurant_header .about .others .divisor {
+  border-right: 1px solid white;
+  padding: 0rem 2rem;
+}
+
+.restaurant_header .coupon {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  justify-content: center;
+  border-radius: 1.25rem;
+  border: 2px dashed var(--orange);
+  padding: 1.875rem;
+}
+
+.restaurant_header .coupon .title {
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  font-family: var(--poppins);
+  color: var(--orange);
+}
+
+.restaurant_header .coupon .info {
+  font-size: 1rem;
+  font-style: normal;
+  display: flex;
+  flex-direction: row;
+  font-weight: 500;
+  gap: 0.6255rem;
+  line-height: normal;
+  color: white;
+  font-family: var(--poppins);
+}
