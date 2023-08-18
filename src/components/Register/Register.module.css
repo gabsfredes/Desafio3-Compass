@@ -103,6 +103,16 @@
   padding: 0.5rem;
   transition: 0.5s;
 }
+
+.register_content .logged {
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  font-family: var(--poppins);
+  color: var(--orange);
+}
+
 /* Mobile */
 @media (max-width: 480px) {
   #register_page {
@@ -131,6 +141,10 @@
 
   .register_form .already {
     text-align: center;
+  }
+
+  .login_content .logged {
+    font-size: 1rem;
   }
 }
 

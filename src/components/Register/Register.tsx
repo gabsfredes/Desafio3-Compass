@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { Formik, Field, Form, FormikHelpers, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { getCookie } from "../cookieUtils";
 
 interface Values {
   username: string;
@@ -13,15 +14,7 @@ interface Values {
 }
 
 const Register: React.FC = () => {
-  // useEffect(() => {
-  //   fgetSchemas()
-  //     .then((fetchedSchemas) => {
-  //       console.log(fetchedSchemas);
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error effect:", error);
-  //     });
-  // }, []);
+  const sessionToken = getCookie("sessionToken");
 
   const validationSchema = Yup.object().shape({
     username: Yup.string()
@@ -65,91 +58,97 @@ const Register: React.FC = () => {
         </div>
 
         <div className={classes.register_content}>
-          <Formik
-            initialValues={initialValues}
-            onSubmit={handleSubmit}
-            validationSchema={validationSchema}
-          >
-            <Form className={classes.register_form}>
-              <div className={classes.input_content}>
-                <label htmlFor="username" className={classes.field_name}>
-                  Username
-                </label>
-                <Field
-                  id="username"
-                  name="username"
-                  className={classes.input}
-                  required
-                />
-                <ErrorMessage
-                  name="username"
-                  component="div"
-                  className={classes.register_error}
-                />
-              </div>
+          {(!sessionToken && (
+            <Formik
+              initialValues={initialValues}
+              onSubmit={handleSubmit}
+              validationSchema={validationSchema}
+            >
+              <Form className={classes.register_form}>
+                <div className={classes.input_content}>
+                  <label htmlFor="username" className={classes.field_name}>
+                    Username
+                  </label>
+                  <Field
+                    id="username"
+                    name="username"
+                    className={classes.input}
+                    required
+                  />
+                  <ErrorMessage
+                    name="username"
+                    component="div"
+                    className={classes.register_error}
+                  />
+                </div>
 
-              <div className={classes.input_content}>
-                <label htmlFor="email" className={classes.field_name}>
-                  Email
-                </label>
-                <Field
-                  id="email"
-                  name="email"
-                  type="email"
-                  className={classes.input}
-                  required
-                />
-                <ErrorMessage
-                  name="email"
-                  component="div"
-                  className={classes.register_error}
-                />
-              </div>
+                <div className={classes.input_content}>
+                  <label htmlFor="email" className={classes.field_name}>
+                    Email
+                  </label>
+                  <Field
+                    id="email"
+                    name="email"
+                    type="email"
+                    className={classes.input}
+                    required
+                  />
+                  <ErrorMessage
+                    name="email"
+                    component="div"
+                    className={classes.register_error}
+                  />
+                </div>
 
-              <div className={classes.input_content}>
-                <label htmlFor="password" className={classes.field_name}>
-                  Password
-                </label>
-                <Field
-                  id="password"
-                  name="password"
-                  type="password"
-                  className={classes.input}
-                  required
-                />
-                <ErrorMessage
-                  name="password"
-                  component="div"
-                  className={classes.register_error}
-                />
-              </div>
+                <div className={classes.input_content}>
+                  <label htmlFor="password" className={classes.field_name}>
+                    Password
+                  </label>
+                  <Field
+                    id="password"
+                    name="password"
+                    type="password"
+                    className={classes.input}
+                    required
+                  />
+                  <ErrorMessage
+                    name="password"
+                    component="div"
+                    className={classes.register_error}
+                  />
+                </div>
 
-              <div className={classes.input_content}>
-                <label htmlFor="cpassword" className={classes.field_name}>
-                  Confirm Password
-                </label>
-                <Field
-                  id="cpassword"
-                  name="cpassword"
-                  type="password"
-                  className={classes.input}
-                  required
-                />
-                <ErrorMessage
-                  name="cpassword"
-                  component="div"
-                  className={classes.register_error}
-                />
-              </div>
+                <div className={classes.input_content}>
+                  <label htmlFor="cpassword" className={classes.field_name}>
+                    Confirm Password
+                  </label>
+                  <Field
+                    id="cpassword"
+                    name="cpassword"
+                    type="password"
+                    className={classes.input}
+                    required
+                  />
+                  <ErrorMessage
+                    name="cpassword"
+                    component="div"
+                    className={classes.register_error}
+                  />
+                </div>
 
-              <button type="submit" className="btn register">
-                Register
-              </button>
-              <span className={classes.already}>
-                Yes i have an account? <Link to="/login">Login</Link>
-              </span>
-            </Form>
-          </Formik>
+                <button type="submit" className="btn register">
+                  Register
+                </button>
+                <span className={classes.already}>
+                  Yes i have an account? <Link to="/login">Login</Link>
+                </span>
+              </Form>
+            </Formik>
+          )) || (
+            <div className={classes.logged}>
+              You are already logged in! Go back <Link to="/">home</Link>
+            </div>
+          )}
         </div>
       </section>
     </>

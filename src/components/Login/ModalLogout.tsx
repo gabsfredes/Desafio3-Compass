@@ -18,10 +18,10 @@ const LogoutModal: React.FC<LogoutModalProps> = ({
         <p>Are you sure you want to logout?</p>
         <div className="buttons">
           <button className="btn modal_btn sign" onClick={onRequestClose}>
-            Cancelar
+            No
           </button>
           <button className="btn modal_btn sign" onClick={onConfirm}>
-            Confirmar
+            Yes
           </button>
         </div>
       </div>

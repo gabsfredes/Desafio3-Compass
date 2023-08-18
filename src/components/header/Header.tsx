@@ -28,7 +28,7 @@ const Header: React.FC = () => {
     deleteCookie("sessionToken");
     setIsModalOpen(false);
     setTimeout(() => {
-      navigate("/");
+      navigate("/login");
     }, 1000);
   };
 
