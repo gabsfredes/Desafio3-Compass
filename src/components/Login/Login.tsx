@@ -5,6 +5,7 @@ import { Formik, Field, Form, FormikHelpers, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { createSessionCookie, getCookie } from "../cookieUtils";
 import SuccessLogin from "./SuccessLogin";
+import ErrorLogin from "./ErrorLogin";
 import { useState } from "react";
 
 interface Values {
@@ -14,6 +15,7 @@ interface Values {
 
 const Login: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpenError, setIsModalOpenError] = useState(false);
   const navigate = useNavigate();
   const sessionToken = getCookie("sessionToken");
 
@@ -31,13 +33,19 @@ const Login: React.FC = () => {
     password: "",
   };
 
-  const handleSubmit = async ( 
+  const handleSubmit = async (
     values: Values,
     actions: FormikHelpers<Values>
   ) => {
     const loginToken = await mutationLogin(values);
-    createSessionCookie("sessionToken", loginToken, 7);
-    handleLoginModal();
+
+    // se for um array, é pq deu erro
+    if (Array.isArray(loginToken)) {
+      handleErrorLoginModal();
+    } else {
+      createSessionCookie("sessionToken", loginToken, 2);
+      handleLoginModal();
+    }
   };
 
   const handleLoginModal = () => {
@@ -48,6 +56,17 @@ const Login: React.FC = () => {
     setIsModalOpen(false);
     setTimeout(() => {
       navigate("/");
+    }, 500);
+  };
+
+  const handleErrorLoginModal = () => {
+    setIsModalOpenError(true);
+  };
+
+  const handleErrorLoginConfirm = () => {
+    setIsModalOpenError(false);
+    setTimeout(() => {
+      navigate("/login");
     }, 500);
   };
 
@@ -120,6 +139,7 @@ const Login: React.FC = () => {
           )}
         </div>
         <SuccessLogin isOpen={isModalOpen} onConfirm={handleLoginConfirm} />
+        <ErrorLogin isOpen={isModalOpenError} onConfirm={handleErrorLoginConfirm} />
       </section>
     </>
   );

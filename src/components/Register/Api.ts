@@ -53,8 +53,7 @@ export async function mutationNewUser(values: any): Promise<any[]> {
           createdAt
         }
         sessionToken
-}
-
+    }
   }
   `;
   try {
