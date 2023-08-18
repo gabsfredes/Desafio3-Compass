@@ -3,7 +3,6 @@ import { getRestaurant, AboutRestaurant } from "./Api";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import starIcon from "../../images/star_icon.svg";
-import badStarIcon from "../../images/low_star_icon.svg";
 import couponIcon from "../../images/coupon.svg";
 
 const Restaurant: React.FC = () => {
@@ -38,19 +37,38 @@ const Restaurant: React.FC = () => {
             ) : (
               <span className={classes.name}>Loading...</span>
             )}
-            <span className={classes.location}>Rating</span>
-            <div className={classes.others}>
-              {
-                
-              }
-
-              {restaurantData ? (
+            <span className={classes.location}>
+            {restaurantData ? (
                 <span className={classes.divisor}>
-                  {restaurantData.deliveryTime}
+                  {restaurantData.location}
                 </span>
               ) : (
                 <span className={classes.divisor}>...</span>
               )}
+            </span>
+            <div className={classes.others}>
+            {restaurantData ? (
+                <span className={classes.divisor}>
+                  <img src={starIcon} alt="star" /> 
+                  {restaurantData.rating}
+                  <br></br>
+                  100+ ratings
+                </span>
+              ) : (
+                <span className={classes.divisor}>...</span>
+              )}
+
+              {restaurantData ? (
+                <span className={classes.divisor}>
+                  {restaurantData.deliveryTime}
+                  <br></br>
+                  Delivery Time
+                </span>
+              ) : (
+                <span className={classes.divisor}>...</span>
+              )}
+
+              
             </div>
           </div>
           <div className={classes.coupon}>

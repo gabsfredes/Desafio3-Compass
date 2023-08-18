@@ -44,7 +44,7 @@
 .restaurant_header .about .others {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: repeat(1, 1fr);
   font-size: 1rem;
   font-style: normal;
   font-weight: 500;
