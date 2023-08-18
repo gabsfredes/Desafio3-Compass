@@ -28,13 +28,13 @@ const Footer: React.FC = () => {
       </div>
       <div className={classes.social_media}>
         <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
-          <img src={facebook_icon} alt="Facebook Icon" />
+          <img src={facebook_icon} className={classes.social_media_img} alt="Facebook Icon" />
         </a>
         <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
-          <img src={instagram_icon} alt="Instagram Icon" />
+          <img src={instagram_icon} className={classes.social_media_img} alt="Instagram Icon" />
         </a>
         <a href="https://www.twitter.com/" target="_blank" rel="noreferrer">
-          <img src={twitter_icon} alt="Twitter Icon" />
+          <img src={twitter_icon} className={classes.social_media_img} alt="Twitter Icon" />
         </a>
       </div>
     </footer>

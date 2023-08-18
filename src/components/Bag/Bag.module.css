@@ -1,6 +1,12 @@
 .bag {
   cursor: pointer;
   display: block;
+  transition: 0.2s;
+}
+
+.bag:hover {
+  transition: 0.2s;
+  scale: 0.95;
 }
 
 /* Mobile */

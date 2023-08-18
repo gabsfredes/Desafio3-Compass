@@ -31,6 +31,12 @@ footer p {
   line-height: normal;
   font-family: var(--gilroy);
   color: white;
+  transition: 0.2s;
+}
+
+footer p:hover{
+  color: var(--light-gray);
+  transition: 0.2s;
 }
 
 footer .links {
@@ -46,6 +52,12 @@ footer .links a {
   line-height: normal;
   color: white;
   font-family: var(--poppins);
+  transition: 0.2s;
+}
+
+footer .links a:hover {
+  transition: 0.2s;
+  color: var(--light-gray);
 }
 
 footer .contact {
@@ -53,6 +65,12 @@ footer .contact {
   flex-direction: row;
   align-items: center;
   gap: 0.62rem;
+  transition: 0.2s;
+}
+
+footer .contact {
+  scale: 0.98;
+  transition: 0.2s;
 }
 
 footer .contact_txt {
@@ -77,6 +95,16 @@ footer .social_media {
   display: flex;
   flex-direction: row;
   gap: 1.25rem;
+  transition: 0.2s;
+}
+
+footer .social_media_img {
+  transition: 0.2s;
+}
+
+footer .social_media_img:hover {
+  transition: 0.2s;
+  scale: 0.90;
 }
 
 /* Mobile */
